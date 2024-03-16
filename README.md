@@ -14,12 +14,13 @@ A powerful webservice which provides data for all kinds of fruit! You can use Fr
 # Used Tools
 
 ## Connect
+Uses the requests library in python to get the json request via the fruityvice API. Fruityvice API: https://www.fruityvice.com/api/fruit/all. The json output is then loaded to a variable within the jupyter notebook. 
 
-## Buffer
-Databricks
 ## Processing
-- PySpark
+PySpark is used to process the data pulled from the API. A data frame reads the json response from the connection above which includes the following fields: Family, Genus, ID, Name, Nutrition Values, Order. The data frame then extracts each of the nutritional values which are contained within dictionaries these are then added as separate columns within the data frame. The nutritional fields include: Calories, Carbohydrates, Fat, Protein, and Sugar.
+
 ## Storage
 - Amazon S3
+
 ## Visualization
 - Power BI
