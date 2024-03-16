@@ -1,6 +1,7 @@
 # Databricks notebook source
 # Whole ETL Process
 
+#Function calls the fruityvice api and loads the json response to a variable which is then returned.
 def extract_all_fruits():
     import requests
     import json
@@ -17,6 +18,8 @@ def extract_all_fruits():
     res = requests.get('https://www.fruityvice.com/api/fruit/all')
     json_response = json.loads(res.text)
     return json_response
+    
+#The function transforms the json response from the previous function. It takes the multilines from the nutrition dictionary and adds each as a separate field in the dataframe
 def transform_json_response(response):
     #Create sparksession and set it to object called spark
     spark = SparkSession.builder \
@@ -42,6 +45,7 @@ def transform_json_response(response):
     df = df.drop("nutritions")
     return df
 
+# The function loads the transformed data into the all_fruits_tbl in Databricks.
 def load_dataframe_to_tbl(df):
     df.write.mode("append").saveAsTable("learn_data_engineering.default.all_fruits_tbl")
 
@@ -49,7 +53,7 @@ def load_dataframe_to_tbl(df):
 
 
 
-# COMMAND ----------
+# Each function is ran one at a time. In order Extract, Transform, and Load. ----------
 
 #Extract all fruits
 extract_all_fruits()
