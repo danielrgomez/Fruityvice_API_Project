@@ -11,3 +11,10 @@ https://dbc-f5c24415-4f48.cloud.databricks.com/dashboardsv3/01ee8bf319cd1ceeb211
 Fruityvice:
 A powerful webservice which provides data for all kinds of fruit! You can use Fruityvice to find out interesting information about fruit and educate yourself. The webservice is completely free to use and contribute to. Understanding the nutritional value of fruits can hlelp individuals make informed choices about their diet, leading to better health and wellness. Moreover, fuits are rich in essential vitamins, minerals and antioxidants which play a major role in prventing chronic diseases as heart disease, strock and certain cancers. The purpose of the dashboard is to help inform users of different types fruits and their nutritional values. 
 
+# Used Tools
+
+- Databricks
+- Amazon S3
+## Processing
+- PySpark
+- 
