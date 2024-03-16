@@ -13,8 +13,12 @@ A powerful webservice which provides data for all kinds of fruit! You can use Fr
 
 # Used Tools
 
-- Databricks
-- Amazon S3
+## Connect
+
+## Buffer
+Databricks
 ## Processing
 - PySpark
-- 
+## Storage
+- Amazon S3
+## Visualization
