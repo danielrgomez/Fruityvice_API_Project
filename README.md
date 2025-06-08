@@ -1,13 +1,11 @@
 # Fruityvice_API_Project
-The data pulled comes from a public API called: https://www.fruityvice.com, the data returned is in JSON format.
-A job is scheduled to run an ETL process via the jupyter notebook in databricks. The extraction of the data is as a JSON request from the web server, 
-the transformation of the data uses PySpark to get the multilines from the nutrition field, creates a timestamp for each job ran and drops the nutrition field, 
-finally the data is loaded to a table housed in an S3 bucket. The ingestion table is then consumed by a power bi dashboard that is refreshed every time the scheduled process runs.
+This ETL pipeline extracts JSON-formatted data from the **Fruityvice API**, processing it via a **scheduled job in Databricks** using Jupyter Notebook. The extraction retrieves data from the web server, while **PySpark** transforms it by parsing multi-line nutrition fields, generating timestamps for each run, and dropping unnecessary fields. The processed data is then loaded into an **S3-housed ingestion table**, which feeds a **Power BI dashboard** that refreshes with each scheduled execution.
 
 
 # The Data Set
 Fruityvice:
-A powerful webservice which provides data for all kinds of fruit! You can use Fruityvice to find out interesting information about fruit and educate yourself. The webservice is completely free to use and contribute to. Understanding the nutritional value of fruits can hlelp individuals make informed choices about their diet, leading to better health and wellness. Moreover, fuits are rich in essential vitamins, minerals and antioxidants which play a major role in preventing chronic diseases such as heart disease, strokes and certain cancers. The purpose of the dashboard is to help inform users of different types fruits and their nutritional values. 
+Fruityvice is a free web service providing comprehensive nutritional data on various fruits, empowering users to make informed dietary choices for improved health and wellness. With rich insights into essential vitamins, minerals, and antioxidants, Fruityvice helps highlight the role of fruits in preventing chronic diseases such as heart disease, strokes, and certain cancers. The accompanying dashboard enhances user experience by presenting key nutritional values, making fruit selection both educational and impactful.
+
 
 # Used Tools
 
