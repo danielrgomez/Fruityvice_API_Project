@@ -8,15 +8,16 @@ Fruityvice is a free web service providing comprehensive nutritional data on var
 
 
 # Used Tools
+### **Tools & Workflow Overview**  
 
-## Connect
-Uses the requests library in python to get the json request via the fruityvice API. Fruityvice API: https://www.fruityvice.com/api/fruit/all. The json output is then loaded to a variable within the jupyter notebook. A workflow is set up to request the data from the fruityvice API on a scheduled cadence, it runs on a daily basis to update the ingestion table.
+#### **Data Ingestion**  
+The pipeline utilizes Python’s `requests` library to retrieve JSON-formatted data from the **Fruityvice API** ([link](https://www.fruityvice.com/api/fruit/all)). The response is stored in a variable within **Jupyter Notebook**, where a scheduled workflow automates daily API requests to ensure the ingestion table remains updated with the latest fruit data.  
 
-## Processing
-PySpark is used to process the data pulled from the API. A data frame reads the json response from the connection above which includes the following fields: Family, Genus, ID, Name, Nutrition Values, Order. The data frame then extracts each of the nutritional values which are contained within dictionaries these are then added as separate columns within the data frame. The nutritional fields include: Calories, Carbohydrates, Fat, Protein, Sugar and a TimeStamp field is also created. The data is then saved as a table in Databricks. The data is also pulled into a Warehouse for analytic purposes.
+#### **Processing**  
+**PySpark** is employed for efficient data transformation. A DataFrame ingests the JSON response, parsing key fields such as **Family, Genus, ID, Name, Nutrition Values, and Order**. The nested **Nutrition Values** (Calories, Carbohydrates, Fat, Protein, Sugar) are extracted and converted into individual columns. A **timestamp field** is generated to track each ETL run before the processed data is saved as a table in **Databricks** and integrated into a **Warehouse** for analytical use.  
 
-## Storage
-The data is then stored in an Amazon S3 bucket which is connected via Databricks.
+#### **Storage**  
+The transformed data is stored in an **Amazon S3 bucket**, seamlessly connected via **Databricks**, ensuring scalable and reliable access for downstream applications.  
 
-## Visualization
-Power Bi is connected to the warehouse via an API which displays the data using a dashboard with charts and graphs. The dashboard illustrates how each fruit stacks up to the others in terms of their nutritional value. Moreover, it allows the user to interact with the charts and graphs in order to allow the user to get a better understanding of each one of the fruits. 
+#### **Visualization**  
+**Power BI** connects to the warehouse via an API, translating raw data into interactive dashboards with charts and graphs. Users can analyze how different fruits compare in terms of nutritional value, leveraging interactive visual elements for deeper insights into dietary trends.  
